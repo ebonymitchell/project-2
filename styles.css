@@ -1,16 +1,13 @@
-/* ========================================
-   COLOR VARIABLES
-   Store reusable colors in one place.
-======================================== */
+/* COLOR VARIABLES
+   Store reusable colors in one place. */
+
 
 :root {
     --gray-950: hsl(0, 0%, 17%);
     --gray-400: hsl(0, 0%, 58%);
 }
 
-/* ========================================
-   GLOBAL STYLES
-======================================== */
+/* GLOBAL STYLES */
 
 /* Include padding and borders in element dimensions. */
 * {
@@ -25,9 +22,7 @@ body {
     font-weight: 400;
 }
 
-/* ========================================
-   HEADER
-======================================== */
+/* HEADER */
 
 /* Display the desktop background and center header content. */
 .header {
@@ -54,9 +49,7 @@ body {
     text-align: center;
 }
 
-/* ========================================
-   SEARCH FORM
-======================================== */
+/* SEARCH FORM */
 
 /* Keep the input and button next to each other. */
 #search-form {
@@ -111,9 +104,7 @@ body {
     outline-offset: 2px;
 }
 
-/* ========================================
-   RESULTS CARD
-======================================== */
+/* RESULTS CARD */
 
 /* Display four equal columns on desktop.
    Negative margin moves the card upward into the header area.
@@ -163,9 +154,7 @@ body {
     padding-inline: 1.5rem;
 }
 
-/* ========================================
-   MAP
-======================================== */
+/* MAP */
 
 /* Give Leaflet a defined height.
    Negative margin pulls the map behind the results card. */
@@ -176,9 +165,7 @@ body {
     z-index: 0;
 }
 
-/* ========================================
-   FOOTER
-======================================== */
+/* FOOTER */
 
 /* Keep the challenge attribution small and centered. */
 .attribution {
@@ -204,16 +191,10 @@ body {
     display: none;
 }
 
-/* ========================================
-   MOBILE RESPONSIVE LAYOUT
-   Applies to screens 768px wide or smaller.
-======================================== */
 
+   /* MOBILE RESPONSIVE LAYOUT
+   Applies to screens 768px wide or smaller. */
 
-/* ========================================
-   MOBILE RESPONSIVE LAYOUT
-   Applies to screens 768px wide or smaller.
-======================================== */
 
 @media (max-width: 768px) {
 
