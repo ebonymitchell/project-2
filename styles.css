@@ -1,7 +1,6 @@
 /* COLOR VARIABLES
    Store reusable colors in one place. */
 
-
 :root {
     --gray-950: hsl(0, 0%, 17%);
     --gray-400: hsl(0, 0%, 58%);
@@ -157,11 +156,14 @@ body {
 /* MAP */
 
 /* Give Leaflet a defined height.
-   Negative margin pulls the map behind the results card. */
+   Negative margin pulls the map behind the results card.
+   Positioning creates a stacking context that keeps Leaflet's
+   internal layers underneath the results card. */
 #map {
     height: 60vh;
     min-height: 500px;
     margin-top: -3rem;
+    position: relative;
     z-index: 0;
 }
 
@@ -179,6 +181,8 @@ body {
     color: hsl(228, 45%, 44%);
 }
 
+/* SEARCH STATUS */
+
 /* Display search feedback without disrupting the header layout. */
 #search-status {
     color: white;
@@ -191,10 +195,8 @@ body {
     display: none;
 }
 
-
-   /* MOBILE RESPONSIVE LAYOUT
+/* MOBILE RESPONSIVE LAYOUT
    Applies to screens 768px wide or smaller. */
-
 
 @media (max-width: 768px) {
 
@@ -247,13 +249,13 @@ body {
     }
 
     /* Remove desktop padding from each result. */
-    #results > div {
+    #results>div {
         padding-inline: 0;
         min-width: 0;
     }
 
     /* Remove desktop column dividers. */
-    #results > div:not(:last-child) {
+    #results>div:not(:last-child) {
         border-right: none;
     }
 
@@ -264,10 +266,12 @@ body {
         overflow-wrap: anywhere;
     }
 
-    /* Keep the map behind the card without excessive overlap. */
+    /* Keep the map behind the card without excessive overlap.
+       Positioning and stacking order are inherited from
+       the main #map rule above. */
     #map {
         height: 60vh;
         min-height: 500px;
-        margin-top: -2rem;
+        margin-top: -3rem;
     }
 }
