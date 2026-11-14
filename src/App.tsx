@@ -123,7 +123,10 @@ function App() {
           id="map"
           aria-label="Map showing the IP address location"
         >
-          <Map />
+          <Map
+            latitude={result?.location.lat}
+            longitude={result?.location.lng}
+          />
         </section>
       </main>
 

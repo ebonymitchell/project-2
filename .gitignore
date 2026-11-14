@@ -25,4 +25,12 @@ dist-ssr
 
 # Local Netlify folder
 .netlify
+
+# Environment variables and secrets
 .env
+.env.*
+!.env.example
+secret.js
+
+# Original HTML backup
+original-index.html

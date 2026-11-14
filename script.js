@@ -2,9 +2,7 @@
 
 // Tell the code checker that L is provided by the Leaflet library.
 
-/* ========================================
-   LEAFLET MAP SETUP
-======================================== */
+/* LEAFLET MAP SETUP */
 
 // Create a Leaflet map inside the HTML element with ID "map".
 const map = L.map("map");
@@ -26,9 +24,7 @@ L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
 const marker = L.marker([40.7128, -74.0060]).addTo(map);
 
 
-/* ========================================
-   HTML ELEMENTS
-======================================== */
+/* HTML ELEMENTS */
 
 // Select the search form and its input field.
 const searchForm = document.querySelector("#search-form");
@@ -47,9 +43,7 @@ const searchStatus = document.querySelector("#search-status");
 const searchButton = searchForm.querySelector('button[type="submit"]');
 
 
-/* ========================================
-   UPDATE THE RESULTS AND MAP
-======================================== */
+/* UPDATE THE RESULTS AND MAP */
 
 // This function receives the JSON data returned by IPify.
 function displayResults(data) {
@@ -79,9 +73,7 @@ function displayResults(data) {
 }
 
 
-/* ========================================
-   SEARCH FORM AND API REQUEST
-======================================== */
+/* SEARCH FORM AND API REQUEST */
 
 // Run this asynchronous callback when the user submits the form.
 searchForm.addEventListener("submit", async (event) => {
