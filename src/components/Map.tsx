@@ -5,19 +5,34 @@ import {
     Marker,
     useMap,
 } from 'react-leaflet'
-import type { LatLngExpression } from 'leaflet'
+import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
 
-// Coordinates passed from the IP lookup results.
+// Import marker images so Vite includes them in the production build.
+import markerIcon from 'leaflet/dist/images/marker-icon.png'
+import markerIconRetina from 'leaflet/dist/images/marker-icon-2x.png'
+import markerShadow from 'leaflet/dist/images/marker-shadow.png'
+
+// Configure the marker using bundled image URLs.
+const locationIcon = L.icon({
+    iconUrl: markerIcon,
+    iconRetinaUrl: markerIconRetina,
+    shadowUrl: markerShadow,
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    shadowSize: [41, 41],
+})
+
+// Default map location before a search.
+const initialPosition: [number, number] = [40.7128, -74.0060]
+
 interface MapProps {
     latitude?: number
     longitude?: number
 }
 
-// Default location before the user searches.
-const initialPosition: LatLngExpression = [40.7128, -74.0060]
-
-// Recenter the Leaflet map when the searched location changes.
+// Move the map when the search result coordinates change.
 function MapUpdater({
     latitude,
     longitude,
@@ -35,10 +50,10 @@ function MapUpdater({
 }
 
 function Map({ latitude, longitude }: MapProps) {
-    const currentLatitude = latitude ?? 40.7128
-    const currentLongitude = longitude ?? -74.0060
+    const currentLatitude = latitude ?? initialPosition[0]
+    const currentLongitude = longitude ?? initialPosition[1]
 
-    const position: LatLngExpression = [
+    const position: [number, number] = [
         currentLatitude,
         currentLongitude,
     ]
@@ -50,20 +65,19 @@ function Map({ latitude, longitude }: MapProps) {
             scrollWheelZoom={true}
             style={{ height: '100%', width: '100%' }}
         >
-            {/* Display the OpenStreetMap map tiles. */}
             <TileLayer
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
 
-            {/* Update the map center after a successful search. */}
+            {/* Recenter the map after each successful lookup. */}
             <MapUpdater
                 latitude={currentLatitude}
                 longitude={currentLongitude}
             />
 
-            {/* Move the marker to the searched coordinates. */}
-            <Marker position={position} />
+            {/* Use an explicitly configured marker icon. */}
+            <Marker position={position} icon={locationIcon} />
         </MapContainer>
     )
 }
