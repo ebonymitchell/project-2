@@ -1,11 +1,9 @@
-Project 1 Reflection – IP Address Tracker
+# Project 2 Reflection — IP Address Tracker
 
-For this project, I built a responsive IP Address Tracker using HTML, CSS, JavaScript, the IPify API, and Leaflet. The application allows users to search for an IP address or domain and see the location information displayed on an interactive map.
+For this assessment, I rebuilt my original IP Address Tracker using React, TypeScript, and Vite. I wanted to keep the original design and functionality while learning how to build the application using React components instead of vanilla JavaScript.
 
-One of the biggest things I learned was how the frontend, API, and serverless function work together. I'm still getting comfortable with JavaScript, so working with fetch(), async/await, and JSON data gave me some much-needed practice. I also learned how to use the coordinates returned by the API to update the map and marker.
+I started by setting up the Vite project and bringing over my existing CSS and images. I created a separate component for the map, added TypeScript interfaces for the API data, and used `useState` to manage the search input, results, loading state, and error messages. I also reused my Netlify serverless function to handle requests to IPify without exposing my API key.
 
-The biggest headache was getting the Netlify function working. I kept getting a 404 error, and figuring out what was wrong took way longer than I expected. I had to check my file structure, make changes, push updates, and test the endpoint repeatedly. I used ChatGPT to help troubleshoot the Netlify deployment and debug the API issues. I also ran into problems with the Leaflet stylesheet and had to make several CSS adjustments to get the mobile layout right.
+The biggest challenge was getting everything working together, especially when it came time to deploy. At first, my API requests weren't working locally because the API key wasn't available in the development environment. I fixed that by creating a `.env` file. Then my first Netlify deployment failed because the serverless function was using CommonJS syntax while the project was configured for ES modules. Renaming the function file to `.cjs` resolved that issue. I also had to fix the Leaflet marker images so the location pin would display correctly on the live site.
 
-I'm proud that I got the application working, especially after all the troubleshooting. Next time, I want to plan things out better and test each part of the application as I go. I also want to continue strengthening my JavaScript skills and getting more experience with debugging, API integration, and building applications from start to finish.
-
-This project was frustrating at times, but it gave me more hands-on experience with API integration, debugging, responsive design, and deployment.
+Overall, this project gave me a better understanding of how React components, state, props, and API requests work together. I also got more experience troubleshooting errors and deploying an application. If I had more time, I'd work on making the code more reusable with custom hooks, adding tests, and improving the map layout on smaller screens.
